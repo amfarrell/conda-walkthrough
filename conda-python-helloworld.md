@@ -1,6 +1,13 @@
 You are going ot create your first conda package. It will contain a single
 python module that prints "Hello World!"
 
+setting up sandbox conda environment
+------------------------------------
+If you have not already installed the [Anaconda](http://docs.continuum.io/anaconda/install.html) distribution of python,
+then install [miniconda](http://conda.pydata.org/miniconda.html). This includes the package management tool `conda` which you will
+be creating packages for. Conda also enables you to create sandboxed environments similar to virtualenv. Before we begin, create a
+new environment with `conda create --name hello-test python=3.4` and then activate it with `source activate hello-test`.
+
 Part I: distutils and setup.py
 ==============================
 A package itself is nothing more than a directory tree with some files in it.
@@ -55,4 +62,12 @@ setup(
 )
 ```
 Right now your package only has metadata. Note that the name given to setup() need not relate to the name of any module within it.
-This metadata does not let the package do anything in particular and running `python setup.py build`
+This metadata does not let the package do anything in particular and running `python setup.py build` will do nothing.
+
+
+
+Sections to write:
+- Check that they have activated a conda env with echo $CONDA_DEFAULT_ENV.
+- About the 'scripts' and 'packages' arguments.
+- The effect of `python setup.py build`.
+- About how to find scripts and how to find modules to demonstrate what `python setup.py install` did.
