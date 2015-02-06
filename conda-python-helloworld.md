@@ -8,6 +8,8 @@ then install [miniconda](http://conda.pydata.org/miniconda.html). This includes 
 be creating packages for. Conda also enables you to create sandboxed environments similar to virtualenv. Before we begin, create a
 new environment with `conda create --name hello-test python=3.4` and then activate it with `source activate hello-test`.
 
+TODO: talk more about what conda actually is for someone who has never encountered it.
+
 Part I: distutils and setup.py
 ==============================
 Before we create a conda package, we must first create a basic python package.
