@@ -14,3 +14,11 @@ For others to use it, they need to know some a few things that directory tree.
 
 In python, the place to put this is a file called setup.py and so your first step is to create a small directory tree
 and write setup.py.
+
+Creating a minimal package directory tree
+-----------------------------------------
+
+                                                                 | Linux/OSX                            |  Windows
+-----------------------------------------------------------------|--------------------------------------|-----------
+Create a directory which will hold the entire project            | `mkdir helloworld`                   | TODO
+Within that, create a directory which will hold your actual code | `mkdir helloworld/hello`             | TODO
