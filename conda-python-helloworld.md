@@ -1,8 +1,8 @@
-You are going ot create your first conda package. It will contain a single
-python module that prints "Hello World!"
+You are going to create your first conda package. It will contain a single
+python module that prints "Hello World!" and will be installable on any Windows, Linux, or OSx platform.
 
-setting up sandbox conda environment
-------------------------------------
+Part 0: Installing Conda and setting up a sandbox conda environment
+-------------------------------------------------------------------
 If you have not already installed the [Anaconda](http://docs.continuum.io/anaconda/install.html) distribution of python,
 then install [miniconda](http://conda.pydata.org/miniconda.html). This includes the package management tool `conda` which you will
 be creating packages for. Conda also enables you to create sandboxed environments similar to virtualenv. Before we begin, create a
@@ -10,6 +10,7 @@ new environment with `conda create --name hello-test python=3.4` and then activa
 
 Part I: distutils and setup.py
 ==============================
+Before we create a conda package, we must first create a basic python package.
 A package itself is nothing more than a directory tree with some files in it.
 For others to use it, they need to know some a few things that directory tree.
 
