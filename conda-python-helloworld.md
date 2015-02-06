@@ -1,3 +1,10 @@
+> Audience:
+> This is targeted at folks who have used python but have never made or uploaded any packages to pypi and are not familiar with [Ana]conda.
+> It is also targeted at folks who have been using [Ana]conda but have not actually built any packages for it.
+> I would like it to be targeted at folks who *have* built pypi packages, but I don't know what assumptions they'll be making.
+
+
+
 You are going to create your first conda package. It will contain a single
 python module that prints "Hello World!" and will be installable on any Windows, Linux, or OSx platform.
 
