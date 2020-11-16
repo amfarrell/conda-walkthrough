@@ -3,8 +3,6 @@
 > It is also targeted at folks who have been using [Ana]conda but have not actually built any packages for it.
 > I would like it to be targeted at folks who *have* built pypi packages, but I don't know what assumptions they'll be making.
 
-
-
 You are going to create your first conda package. It will contain a single
 python module that prints "Hello World!" and will be installable on any Windows, Linux, or OSx platform.
 
@@ -36,22 +34,26 @@ and write setup.py.
 Creating a minimal package directory tree
 -----------------------------------------
 
-                                                                 | Linux/OSX                            |  Windows
------------------------------------------------------------------|--------------------------------------|-----------
-Create a directory which will hold the entire project            | `mkdir helloworld`                   | TODO
-Enter that directory                                             | `cd helloworld`                      | TODO
-Within that, create a directory which will hold your actual code | `mkdir hello`                        | TODO
-Make the code directory a python module by adding __init__.py    | `touch hello/__init__.py`            | TODO
-Within the code directory, start a file to hold your code        | `touch hello/helloworld.py`          | TODO
-Within the project directory, start a file to hold package info  | `touch setup.py`                     | TODO
+|                                                                  | Linux/OSX                            |  Windows |
+|------------------------------------------------------------------|--------------------------------------|----------|
+| Create a directory which will hold the entire project            | `mkdir helloworld`                   | TODO     |
+| Enter that directory                                             | `cd helloworld`                      | TODO     |
+| Within that, create a directory which will hold your actual code | `mkdir hello`                        | TODO     |
+| Make the code directory a python module by adding __init__.py    | `touch hello/__init__.py`            | TODO     |
+| Within the code directory, start a file to hold your code        | `touch hello/helloworld.py`          | TODO     |
+| Within the project directory, start a file to hold package info  | `touch setup.py`                     | TODO     |
 
 If you run `tree .`, you should see
+
+```
 ├── hello
 │   ├── __init__.py
 │   └── helloworld.py
 └── setup.py
+```
 
-In helloworld.py write the following
+In `helloworld.py` write the following
+
 ```python
 #!/usr/bin/env python
 def hello():
@@ -62,13 +64,14 @@ if __name__ == '__main__':
 ```
 This is both a script that you can run on the command line and a module that you can import from a python shell or another python module.
 Check that it works as by calling on the command line `$ python hello/helloworld.py`. It should of course print out "hello world!".
-Then run `python -c 'import hello.helloworld; hello.helloworld.hello()'
+Then run `python -c 'import hello.helloworld; hello.helloworld.hello()'`
 
 Writing setup.py
 ----------------
 > Before we go on, make sure you are have activated a conda environment. Check that the result of running `echo $CONDA_DEFAULT_ENV` is 'hello-test'. If it isn't, run `conda create --name hello-test python=3.4; source activate hello-test`.
 
 You're now ready to actually write setup.py. Begin with the following.
+
 ```python
 from distutils.core import setup
 
@@ -80,12 +83,14 @@ setup(
   url='https://github.com/amfarrell/conda-walkthrough/blob/master/conda-python-helloworld.md',
 )
 ```
+
 Right now your setup.py includes only metadata.
 Run `python setup.py --name`, `python setup.py --author`, or `python setup.py --version`. to see it.
 Note that the name given to setup() need not relate to the name of any module within it. This metadata might be useful for an index like PyPI or binstar.org, but does not help the user install anything.
 
 Add `scripts=['hello/helloworld.py']` to the arguments, then run `python setup.py build`. Your directory tree should look like
 
+```
 ├── build
 │   └── scripts-3.4       #This will be scripts-2.7 if you run python2.7
 │       └── helloworld.py
@@ -93,6 +98,7 @@ Add `scripts=['hello/helloworld.py']` to the arguments, then run `python setup.p
 │   ├── __init__.py
 │   └── helloworld.py
 └── setup.py
+```
 
 You can run `./build/scripts-3.4/helloworld.py` and see that script now has execute permissions. Now, clean that up with `rm -rf ./build` and install the script with `python setup.py install`.
 You'll see that helloworld.py has now been put as an executable in /miniconda/envs/helloworld-test/bin/ (or /anaconda/envs/helloworld-test/bin/). Run it directly with `helloworld.py`. Congratulations! You've successfully built your first installable python package.
